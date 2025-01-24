@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-up</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <div id="sign-up">
+      <form onsubmit="signup(event)">
+        <h1>Sign Up</h1>
+        <h2>Email Address</h2>
+        <input type="text" id="email" placeholder="Email" />
+        <h2>Password</h2>
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have account? <a href="sign-in.html">Sign in</a></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
