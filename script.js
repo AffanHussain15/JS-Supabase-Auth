@@ -82,7 +82,7 @@ create.addEventListener('click', async () => {
     const imagePath = `blog-images/${Date.now()}-${imageFile.name}`;
     console.log(imagePath);
     const { data: uploadData, error: uploadError } = await supaBase.storage
-      .from("uplaod_images")
+      .from("upload_images")
       .upload(imagePath, imageFile);
 
       
@@ -90,7 +90,7 @@ create.addEventListener('click', async () => {
     console.log("UploadData", uploadData);
     console.log("UploadError", uploadError);
     const { data: publicUrlData } = supaBase.storage
-      .from("uplaod_images")
+      .from("upload_images")
       .getPublicUrl(uploadData.path);
     const imageUrl = publicUrlData.publicUrl;
 
