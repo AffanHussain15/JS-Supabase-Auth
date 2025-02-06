@@ -50,7 +50,7 @@
   font-weight: 700;
 }
 
-#Sign-in {
+#sign-in {
   width: 500px;
   height: 500px;
   border: 1px solid black;
@@ -58,5 +58,41 @@
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 20.2);
+}
+
+
+#sign-in input {
+  height: 30px;
   margin-bottom: 20px;
+}
+
+#sign-in h1 {
+  margin: 20px 0px 20px 0px;
+}
+
+#sign-in h2 {
+  margin-bottom: 10px;
+}
+
+#sign-in p {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+#sign-in p a {
+  color: black;
+  text-decoration: none;
+}
+
+#sign-in button {
+  height: 30px;
+  width: 70px;
+  font-size: 17px;
+  font-weight: 700;
 }

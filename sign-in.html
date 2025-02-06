@@ -8,8 +8,8 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
   </head>
   <body>
-    <div id="Sign-in">
-      <form  onsubmit="signin(login)">
+    <div id="sign-in">
+      <form  onsubmit="signin(event)">
         <h1>Sign In</h1>
         <h2>Email Address</h2>
         <input type="text" id="email" placeholder="Email"/>
@@ -17,7 +17,7 @@
         <input type="password" id="password" placeholder="Password"/>
         <button type="submit">Sign In</button>
       </form>
-      <p>Don't have an account<a href="index.html">Don't have account</a></p>
+      <p>Don't have an account? <a href="index.html">Create account</a></p>
     </div>
     <script src="script.js"></script>
   </body>

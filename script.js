@@ -28,9 +28,9 @@ async function signup(event) {
   console.log("error", error);
 }
 
-async function signin(login) {
-  login.preventDefault();
-  const form = login.target;
+async function signin(event) {
+  event.preventDefault();
+  const form = event.target;
   const email = form.email.value;
   const password = form.password.value;
 
@@ -47,6 +47,56 @@ async function signin(login) {
     console.log("Signup Successful", data);
     alert("Signed in successfully:", data);
   }
+  if (signin(event)) {
+    window.location.href = `dashboard.html`;
+    alert("Navigate successful");
+  }
   console.log("data", data);
   console.log("Error", error);
 }
+
+// const logout = document.getElementById("logout-btn");
+// logout?.addEventListener(`click`, async () => {
+//   try {
+//     await supaBase.auth.signOut();
+//     window.location.href = "index.html";
+//     alert("Logout Successful");
+//   } catch (err) {
+//     console.error("Unexpecte error", err);
+//     alert("Logout Failed!");
+//   }
+// });
+
+const create = document.getElementById("upload");
+create.addEventListener('click', async () => {
+  console.log("suc");
+    const imageFile = document.getElementById("image").files[0];
+    console.log(imageFile,"sss");
+  try {
+    console.log(create);
+    if (!imageFile) {
+      alert("Please select an image to upload.");
+      return;
+    }
+    console.log(imageFile);
+    const imagePath = `blog-images/${Date.now()}-${imageFile.name}`;
+    console.log(imagePath);
+    const { data: uploadData, error: uploadError } = await supaBase.storage
+      .from("uplaod_images")
+      .upload(imagePath, imageFile);
+
+      
+    if (uploadError) throw uploadError;
+    console.log("UploadData", uploadData);
+    console.log("UploadError", uploadError);
+    const { data: publicUrlData } = supaBase.storage
+      .from("uplaod_images")
+      .getPublicUrl(uploadData.path);
+    const imageUrl = publicUrlData.publicUrl;
+
+    console.log("Image uploaded:", imageUrl);
+  } catch (error) {
+    console.error("Error", error.message);
+    alert("Failed to upload blog!");
+  }
+});
